@@ -29,6 +29,7 @@ figures: data
 	$(PYTHON) 03_requirements/scripts/plot_palettes.py
 	$(PYTHON) 03_requirements/scripts/plot_cvd.py
 	$(PYTHON) 03_requirements/scripts/plot_fonts.py
+	$(PYTHON) 04_overview/scripts/plot_chart_map.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf
