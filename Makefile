@@ -20,11 +20,15 @@ sync:
 
 data:
 	$(PYTHON) 01_principles/scripts/make_data.py
+	$(PYTHON) 02_python/scripts/make_data.py
 
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
 	$(PYTHON) 01_principles/scripts/good_plot.py
 	$(PYTHON) 02_python/scripts/compare_libraries.py
+	$(PYTHON) 03_requirements/scripts/plot_palettes.py
+	$(PYTHON) 03_requirements/scripts/plot_cvd.py
+	$(PYTHON) 03_requirements/scripts/plot_fonts.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf

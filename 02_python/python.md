@@ -12,9 +12,9 @@
 дисциплины. Seaborn берёт на себя статистику и группы. Plotnine заставляет
 описать график как композицию слоёв. Выбор — не религия, а вопрос задачи.
 
-> Все примеры раздела используют общий набор `data/00_dataset.csv`
-> из раздела 1. Новый клинический сценарий здесь не нужен: раздел про
-> инструменты, а не про новые данные.
+> Все примеры раздела используют собственный набор `data/02_python_dataset.csv`
+> (HbA1c, 132 пациента). Данные синтетические: раздел про инструменты,
+> а не про новую клиническую гипотезу.
 
 ## 2.1 Карта экосистемы
 
@@ -65,15 +65,15 @@ fig, ax = plt.subplots(figsize=(3.35, 2.8), layout="constrained")
 
 for group, part in df.groupby("group"):
     ax.scatter(
-        part["baseline_sbp_mm_hg"],
-        part["followup_sbp_mm_hg"],
+        part["baseline_hba1c_pct"],
+        part["followup_hba1c_pct"],
         s=12,
         alpha=0.5,
         label=group,
     )
 
-ax.set_xlabel("САД до, мм рт. ст.")
-ax.set_ylabel("САД после, мм рт. ст.")
+ax.set_xlabel("HbA1c до, %")
+ax.set_ylabel("HbA1c после, %")
 ax.legend(frameon=False)
 fig.savefig("scatter.svg")
 ```
@@ -109,8 +109,8 @@ import seaborn as sns
 
 sns.scatterplot(
     data=df,
-    x="baseline_sbp_mm_hg",
-    y="followup_sbp_mm_hg",
+    x="baseline_hba1c_pct",
+    y="followup_hba1c_pct",
     hue="group",
     style="group",
     ax=ax,
@@ -147,9 +147,9 @@ Plotnine — реализация грамматики графики (Wilkinson
 from plotnine import *
 
 (
-    ggplot(df, aes("baseline_sbp_mm_hg", "followup_sbp_mm_hg", color="group"))
+    ggplot(df, aes("baseline_hba1c_pct", "followup_hba1c_pct", color="group"))
     + geom_point(alpha=0.5)
-    + labs(x="САД до, мм рт. ст.", y="САД после, мм рт. ст.")
+    + labs(x="HbA1c до, %", y="HbA1c после, %")
     + theme_bw()
 )
 ```
@@ -187,10 +187,10 @@ from plotnine import *
 Это не «или». Типичный пайплайн: seaborn или plotnine для черновика,
 matplotlib для финальной правки, `goodgraph` — для единого стиля.
 
-## 2.3 Один данные — три библиотеки
+## 2.3 Один набор данных — три библиотеки
 
-Чтобы сравнение не осталось теоретическим, один и тот же набор (САД до и
-после лечения, 148 пациентов) построен трижды. Код —
+Чтобы сравнение не осталось теоретическим, один и тот же набор (HbA1c до и
+после 12 недель, 132 пациента) построен трижды. Код —
 [`compare_libraries.py`](scripts/compare_libraries.py).
 
 ![A — matplotlib](../images/02_matplotlib_scatter.png)
@@ -202,12 +202,12 @@ matplotlib для финальной правки, `goodgraph` — для еди
 *Рисунок 2.1.* Один и тот же набор данных в трёх библиотеках: A — matplotlib,
 B — seaborn, C — plotnine. Серые круги — плацебо, синие треугольники —
 препарат A 10 мг, вермилионовые квадраты — препарат B 20 мг; штриховая
-линия — равенство САД до и после. Данные — `data/00_dataset.csv`.
+линия — равенство HbA1c до и после. Данные — `data/02_python_dataset.csv`.
 
 Что здесь важно:
 
-- **Общие пределы и деления.** Все панели используют `xlim/ylim = 80–215`
-  и деления 80/120/160/200. Иначе сравнение было бы нечестным.
+- **Общие пределы и деления.** Все панели используют `xlim/ylim = 4,5–11,5`
+  и деления 6/8/10. Иначе сравнение было бы нечестным.
 - **Общая палитра и формы.** Цвет и форма маркера заданы один раз и
   повторены во всех библиотеках. Это принцип согласованности из раздела 1.
 - **Разный объём кода.** Matplotlib требует явного цикла по группам;
@@ -223,16 +223,16 @@ B — seaborn, C — plotnine. Серые круги — плацебо, син�
 # matplotlib: цикл по группам
 for group in GROUP_ORDER:
     part = df.loc[df["group"] == group]
-    ax.scatter(part["baseline_sbp_mm_hg"], part["followup_sbp_mm_hg"],
+    ax.scatter(part["baseline_hba1c_pct"], part["followup_hba1c_pct"],
                marker=GROUP_MARKERS[group], color=GROUP_COLORS[group])
 
 # seaborn: одна функция, группы через hue/style
-sns.scatterplot(data=df, x="baseline_sbp_mm_hg", y="followup_sbp_mm_hg",
+sns.scatterplot(data=df, x="baseline_hba1c_pct", y="followup_hba1c_pct",
                 hue="group", style="group", ax=ax)
 
 # plotnine: слои через «+»
 (
-    ggplot(df, aes("baseline_sbp_mm_hg", "followup_sbp_mm_hg",
+    ggplot(df, aes("baseline_hba1c_pct", "followup_hba1c_pct",
                    color="group", shape="group"))
     + geom_point(alpha=0.5)
     + geom_abline(slope=1, intercept=0, linetype="dashed")
@@ -414,7 +414,7 @@ export MPLCONFIGDIR="$PWD/.mplconfig"
 ### 2.5.1 Четыре слоя
 
 ```text
-data/00_dataset.csv
+data/02_python_dataset.csv
       ↓  make_data.py: seed, генерация, CSV
       ↓  plot.py: pandas/scipy, агрегация
       ↓  goodgraph.style: rcParams, палитра, размер
@@ -503,7 +503,7 @@ Plotnine живёт в своей системе тем. `theme(text=element_tex
    обязательное условие честного сравнения.
 2. **Палитра и формы.** `GROUP_COLORS` и `GROUP_MARKERS` заданы один раз;
    цвет дублируется формой, чтобы панели читались в сером.
-3. **`load_data()`.** Читает `data/00_dataset.csv` и проверяет, что все
+3. **`load_data()`.** Читает `data/02_python_dataset.csv` и проверяет, что все
    группы на месте.
 4. **`style_axes()`.** Общая функция для matplotlib и seaborn: пределы,
    деления, линия равенства, подписи, сетка, аспект.

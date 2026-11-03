@@ -64,3 +64,7 @@
 #pagebreak()
 
 #include "../02_python/python.typ"
+
+#pagebreak()
+
+#include "../03_requirements/requirements.typ"

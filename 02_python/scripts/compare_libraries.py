@@ -5,12 +5,12 @@
 -----------------
 Раздел 2 объясняет разницу между императивным matplotlib, дата-ориентированным
 seaborn и декларативным plotnine. Чтобы разница не осталась только на словах,
-здесь один и тот же набор данных (САД до и после лечения, 148 пациентов)
+здесь один и тот же набор данных (HbA1c до и после 12 недель, 132 пациента)
 рисуется трижды — по одной библиотеке на панель.
 
-Данные не генерируются заново: используется общий `data/00_dataset.csv`
-из раздела 1. Это сознательное решение: раздел 2 — про инструменты,
-а не про новый клинический пример.
+Данные генерируются отдельным скриптом `make_data.py` и лежат в
+`data/02_python_dataset.csv`. Раздел 2 не переиспользует данные раздела 1:
+у каждого раздела и вида графика — свой генератор и свой набор.
 
 Выход
 -----
@@ -59,8 +59,8 @@ WIDTH_MM = 54
 HEIGHT_MM = 62
 
 # Общие пределы и деления, чтобы панели были сравнимы.
-LIM_MIN, LIM_MAX = 80, 215
-TICKS = [80, 120, 160, 200]
+LIM_MIN, LIM_MAX = 4.5, 11.5
+TICKS = [6, 8, 10]
 
 GROUP_ORDER = ["Плацебо", "Препарат A 10 мг", "Препарат B 20 мг"]
 GROUP_COLORS = {
@@ -78,7 +78,7 @@ GROUP_MARKERS = {
 
 def load_data() -> pd.DataFrame:
     """Прочитать общий CSV и проверить, что все группы на месте."""
-    df = pd.read_csv(DATA_DIR / "00_dataset.csv")
+    df = pd.read_csv(DATA_DIR / "02_python_dataset.csv")
     missing = set(GROUP_ORDER) - set(df["group"].unique())
     if missing:
         raise ValueError(f"В данных нет групп: {sorted(missing)}")
@@ -100,8 +100,8 @@ def style_axes(ax: plt.Axes, title: str) -> None:
     ax.set_xticks(TICKS)
     ax.set_yticks(TICKS)
     ax.set_aspect("equal", adjustable="box")
-    ax.set_xlabel("САД до, мм рт. ст.")
-    ax.set_ylabel("САД после, мм рт. ст.")
+    ax.set_xlabel("HbA1c до, %")
+    ax.set_ylabel("HbA1c после, %")
     ax.set_title(title, fontsize=7.5, pad=3, loc="center")
     ax.grid(True, which="major", axis="both", color="#E8E8E8", linewidth=0.3)
     ax.tick_params(labelsize=6.5, length=2.5, width=0.5)
@@ -119,8 +119,8 @@ def plot_matplotlib(df: pd.DataFrame) -> None:
     for group in GROUP_ORDER:
         part = df.loc[df["group"] == group]
         ax.scatter(
-            part["baseline_sbp_mm_hg"],
-            part["followup_sbp_mm_hg"],
+            part["baseline_hba1c_pct"],
+            part["followup_hba1c_pct"],
             s=9,
             marker=GROUP_MARKERS[group],
             color=GROUP_COLORS[group],
@@ -144,8 +144,8 @@ def plot_seaborn(df: pd.DataFrame) -> None:
 
     sns.scatterplot(
         data=df,
-        x="baseline_sbp_mm_hg",
-        y="followup_sbp_mm_hg",
+        x="baseline_hba1c_pct",
+        y="followup_hba1c_pct",
         hue="group",
         style="group",
         hue_order=GROUP_ORDER,
@@ -171,8 +171,8 @@ def plot_plotnine(df: pd.DataFrame) -> None:
         ggplot(
             df,
             aes(
-                x="baseline_sbp_mm_hg",
-                y="followup_sbp_mm_hg",
+                x="baseline_hba1c_pct",
+                y="followup_hba1c_pct",
                 color="group",
                 shape="group",
             ),
@@ -191,8 +191,8 @@ def plot_plotnine(df: pd.DataFrame) -> None:
         + scale_y_continuous(breaks=TICKS)
         + coord_fixed(ratio=1, xlim=(LIM_MIN, LIM_MAX), ylim=(LIM_MIN, LIM_MAX))
         + labs(
-            x="САД до, мм рт. ст.",
-            y="САД после, мм рт. ст.",
+            x="HbA1c до, %",
+            y="HbA1c после, %",
             title="C · plotnine",
         )
         + theme_bw()
