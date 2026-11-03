@@ -177,3 +177,11 @@
 #pagebreak()
 
 #include "../05_charts/26_corr_matrix/corr_matrix.typ"
+
+#pagebreak()
+
+#include "../05_charts/27_kaplan_meier/kaplan_meier.typ"
+
+#pagebreak()
+
+#include "../05_charts/28_cumulative_incidence/cumulative_incidence.typ"

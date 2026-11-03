@@ -47,6 +47,8 @@ data:
 	$(PYTHON) 05_charts/24_heatmap/scripts/make_data.py
 	$(PYTHON) 05_charts/25_clustermap/scripts/make_data.py
 	$(PYTHON) 05_charts/26_corr_matrix/scripts/make_data.py
+	$(PYTHON) 05_charts/27_kaplan_meier/scripts/make_data.py
+	$(PYTHON) 05_charts/28_cumulative_incidence/scripts/make_data.py
 
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
@@ -111,6 +113,10 @@ figures: data
 	$(PYTHON) 05_charts/25_clustermap/scripts/good_plot.py
 	$(PYTHON) 05_charts/26_corr_matrix/scripts/bad_plot.py
 	$(PYTHON) 05_charts/26_corr_matrix/scripts/good_plot.py
+	$(PYTHON) 05_charts/27_kaplan_meier/scripts/bad_plot.py
+	$(PYTHON) 05_charts/27_kaplan_meier/scripts/good_plot.py
+	$(PYTHON) 05_charts/28_cumulative_incidence/scripts/bad_plot.py
+	$(PYTHON) 05_charts/28_cumulative_incidence/scripts/good_plot.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf
