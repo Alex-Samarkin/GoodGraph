@@ -1,0 +1,28 @@
+# Виртуальное окружение и кеши Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Служебные файлы uv
+# (uv.lock и .python-version коммитим — они фиксируют воспроизводимость)
+
+# Операционная система и редакторы
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Сборка: в репозитории храним только итоговый PDF
+build/*
+!build/metodichka.pdf
+
+# Локальные кеши uv (создаются в песочнице)
+.uv-cache/
+.uv-python/
+
+# Кеш matplotlib (в песочнице домашний каталог недоступен)
+.mplconfig/
