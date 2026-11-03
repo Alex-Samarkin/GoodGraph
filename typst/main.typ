@@ -165,3 +165,15 @@
 #pagebreak()
 
 #include "../05_charts/23_treemap/treemap.typ"
+
+#pagebreak()
+
+#include "../05_charts/24_heatmap/heatmap.typ"
+
+#pagebreak()
+
+#include "../05_charts/25_clustermap/clustermap.typ"
+
+#pagebreak()
+
+#include "../05_charts/26_corr_matrix/corr_matrix.typ"

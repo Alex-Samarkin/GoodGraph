@@ -102,4 +102,7 @@
 | 21_bar_100 | ✅ готов |
 | 22_pie | ✅ готов |
 | 23_treemap | ✅ готов |
-| 24_heatmap … 33_funnel | ⏳ по запросу |
+| 24_heatmap | ✅ готов |
+| 25_clustermap | ✅ готов |
+| 26_corr_matrix | ✅ готов |
+| 27_kaplan_meier … 33_funnel | ⏳ по запросу |

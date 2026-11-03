@@ -12,7 +12,7 @@
 | 2 | [`02_python/`](02_python/) | Экосистема Python: matplotlib, seaborn, plotnine; настройка среды через uv | ✅ готов |
 | 3 | [`03_requirements/`](03_requirements/) | Требования: цветовые гаммы, шрифты, размеры, форматы | ✅ готов |
 | 4 | [`04_overview/`](04_overview/) | Основные виды научных графиков и области применения | ✅ готов |
-| 5 | [`05_charts/`](05_charts/) | Каждый график: данные → плохой пример → разбор → правильный пример | 🚧 01_line … 23_treemap готовы |
+| 5 | [`05_charts/`](05_charts/) | Каждый график: данные → плохой пример → разбор → правильный пример | 🚧 01_line … 26_corr_matrix готовы |
 | 6 | `06_conclusion/` | Общее заключение | ⏳ по запросу |
 | 7 | `07_publication/` | Подготовка графиков к публикации в научном журнале | ⏳ по запросу |
 | 8 | `08_sources/` | Источники и работы о визуализации данных и ПО для графиков | ⏳ по запросу |
@@ -141,6 +141,15 @@ uv run python 05_charts/22_pie/scripts/good_plot.py
 uv run python 05_charts/23_treemap/scripts/make_data.py
 uv run python 05_charts/23_treemap/scripts/bad_plot.py
 uv run python 05_charts/23_treemap/scripts/good_plot.py
+uv run python 05_charts/24_heatmap/scripts/make_data.py
+uv run python 05_charts/24_heatmap/scripts/bad_plot.py
+uv run python 05_charts/24_heatmap/scripts/good_plot.py
+uv run python 05_charts/25_clustermap/scripts/make_data.py
+uv run python 05_charts/25_clustermap/scripts/bad_plot.py
+uv run python 05_charts/25_clustermap/scripts/good_plot.py
+uv run python 05_charts/26_corr_matrix/scripts/make_data.py
+uv run python 05_charts/26_corr_matrix/scripts/bad_plot.py
+uv run python 05_charts/26_corr_matrix/scripts/good_plot.py
 
 # 3. PDF всей методички
 make pdf          # → build/metodichka.pdf

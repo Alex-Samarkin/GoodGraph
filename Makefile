@@ -44,6 +44,9 @@ data:
 	$(PYTHON) 05_charts/21_bar_100/scripts/make_data.py
 	$(PYTHON) 05_charts/22_pie/scripts/make_data.py
 	$(PYTHON) 05_charts/23_treemap/scripts/make_data.py
+	$(PYTHON) 05_charts/24_heatmap/scripts/make_data.py
+	$(PYTHON) 05_charts/25_clustermap/scripts/make_data.py
+	$(PYTHON) 05_charts/26_corr_matrix/scripts/make_data.py
 
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
@@ -102,6 +105,12 @@ figures: data
 	$(PYTHON) 05_charts/22_pie/scripts/good_plot.py
 	$(PYTHON) 05_charts/23_treemap/scripts/bad_plot.py
 	$(PYTHON) 05_charts/23_treemap/scripts/good_plot.py
+	$(PYTHON) 05_charts/24_heatmap/scripts/bad_plot.py
+	$(PYTHON) 05_charts/24_heatmap/scripts/good_plot.py
+	$(PYTHON) 05_charts/25_clustermap/scripts/bad_plot.py
+	$(PYTHON) 05_charts/25_clustermap/scripts/good_plot.py
+	$(PYTHON) 05_charts/26_corr_matrix/scripts/bad_plot.py
+	$(PYTHON) 05_charts/26_corr_matrix/scripts/good_plot.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf
