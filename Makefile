@@ -23,6 +23,7 @@ data:
 	$(PYTHON) 02_python/scripts/make_data.py
 	$(PYTHON) 05_charts/01_line/scripts/make_data.py
 	$(PYTHON) 05_charts/02_step/scripts/make_data.py
+	$(PYTHON) 05_charts/03_area/scripts/make_data.py
 
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
@@ -36,6 +37,8 @@ figures: data
 	$(PYTHON) 05_charts/01_line/scripts/good_plot.py
 	$(PYTHON) 05_charts/02_step/scripts/bad_plot.py
 	$(PYTHON) 05_charts/02_step/scripts/good_plot.py
+	$(PYTHON) 05_charts/03_area/scripts/bad_plot.py
+	$(PYTHON) 05_charts/03_area/scripts/good_plot.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf
