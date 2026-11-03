@@ -12,7 +12,7 @@
 | 2 | [`02_python/`](02_python/) | Экосистема Python: matplotlib, seaborn, plotnine; настройка среды через uv | ✅ готов |
 | 3 | [`03_requirements/`](03_requirements/) | Требования: цветовые гаммы, шрифты, размеры, форматы | ✅ готов |
 | 4 | [`04_overview/`](04_overview/) | Основные виды научных графиков и области применения | ✅ готов |
-| 5 | [`05_charts/`](05_charts/) | Каждый график: данные → плохой пример → разбор → правильный пример | 🚧 01_line … 20_stacked_bar готовы |
+| 5 | [`05_charts/`](05_charts/) | Каждый график: данные → плохой пример → разбор → правильный пример | 🚧 01_line … 23_treemap готовы |
 | 6 | `06_conclusion/` | Общее заключение | ⏳ по запросу |
 | 7 | `07_publication/` | Подготовка графиков к публикации в научном журнале | ⏳ по запросу |
 | 8 | `08_sources/` | Источники и работы о визуализации данных и ПО для графиков | ⏳ по запросу |
@@ -132,6 +132,15 @@ uv run python 05_charts/19_bland_altman/scripts/good_plot.py
 uv run python 05_charts/20_stacked_bar/scripts/make_data.py
 uv run python 05_charts/20_stacked_bar/scripts/bad_plot.py
 uv run python 05_charts/20_stacked_bar/scripts/good_plot.py
+uv run python 05_charts/21_bar_100/scripts/make_data.py
+uv run python 05_charts/21_bar_100/scripts/bad_plot.py
+uv run python 05_charts/21_bar_100/scripts/good_plot.py
+uv run python 05_charts/22_pie/scripts/make_data.py
+uv run python 05_charts/22_pie/scripts/bad_plot.py
+uv run python 05_charts/22_pie/scripts/good_plot.py
+uv run python 05_charts/23_treemap/scripts/make_data.py
+uv run python 05_charts/23_treemap/scripts/bad_plot.py
+uv run python 05_charts/23_treemap/scripts/good_plot.py
 
 # 3. PDF всей методички
 make pdf          # → build/metodichka.pdf

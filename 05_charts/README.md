@@ -99,4 +99,7 @@
 | 18_paired_dot | ✅ готов |
 | 19_bland_altman | ✅ готов |
 | 20_stacked_bar | ✅ готов |
-| 21_bar_100 … 33_funnel | ⏳ по запросу |
+| 21_bar_100 | ✅ готов |
+| 22_pie | ✅ готов |
+| 23_treemap | ✅ готов |
+| 24_heatmap … 33_funnel | ⏳ по запросу |

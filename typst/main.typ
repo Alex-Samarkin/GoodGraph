@@ -153,3 +153,15 @@
 #pagebreak()
 
 #include "../05_charts/20_stacked_bar/stacked_bar.typ"
+
+#pagebreak()
+
+#include "../05_charts/21_bar_100/bar_100.typ"
+
+#pagebreak()
+
+#include "../05_charts/22_pie/pie.typ"
+
+#pagebreak()
+
+#include "../05_charts/23_treemap/treemap.typ"
