@@ -141,3 +141,7 @@
 #pagebreak()
 
 #include "../05_charts/17_slope/slope.typ"
+
+#pagebreak()
+
+#include "../05_charts/18_paired_dot/paired_dot.typ"

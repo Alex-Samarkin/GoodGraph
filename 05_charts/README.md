@@ -96,4 +96,5 @@
 | 15_bar | ✅ готов |
 | 16_forest | ✅ готов |
 | 17_slope | ✅ готов |
-| 18_paired_dot … 33_funnel | ⏳ по запросу |
+| 18_paired_dot | ✅ готов |
+| 19_bland_altman … 33_funnel | ⏳ по запросу |
