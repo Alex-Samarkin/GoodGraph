@@ -110,6 +110,8 @@ dependencies = [
     { name = "plotnine" },
     { name = "scipy" },
     { name = "seaborn" },
+    { name = "statsmodels", version = "0.14.4", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform == 'emscripten'" },
+    { name = "statsmodels", version = "0.15.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'emscripten'" },
 ]
 
 [package.dev-dependencies]
@@ -128,6 +130,7 @@ requires-dist = [
     { name = "plotnine", specifier = ">=0.13" },
     { name = "scipy", specifier = ">=1.13" },
     { name = "seaborn", specifier = ">=0.13" },
+    { name = "statsmodels", specifier = ">=0.14.4" },
 ]
 
 [package.metadata.requires-dev]

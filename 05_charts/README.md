@@ -86,4 +86,5 @@
 | 05_scatter | ✅ готов |
 | 06_hexbin | ✅ готов |
 | 07_contour | ✅ готов |
-| 08_loess … 33_funnel | ⏳ по запросу |
+| 08_loess | ✅ готов |
+| 09_histogram … 33_funnel | ⏳ по запросу |

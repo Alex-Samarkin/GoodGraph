@@ -101,3 +101,7 @@
 #pagebreak()
 
 #include "../05_charts/07_contour/contour.typ"
+
+#pagebreak()
+
+#include "../05_charts/08_loess/loess.typ"
