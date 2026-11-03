@@ -133,3 +133,7 @@
 #pagebreak()
 
 #include "../05_charts/15_bar/bar.typ"
+
+#pagebreak()
+
+#include "../05_charts/16_forest/forest.typ"
