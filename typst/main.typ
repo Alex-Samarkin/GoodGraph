@@ -89,3 +89,7 @@
 #pagebreak()
 
 #include "../05_charts/04_small_multiples/small_multiples.typ"
+
+#pagebreak()
+
+#include "../05_charts/05_scatter/scatter.typ"
