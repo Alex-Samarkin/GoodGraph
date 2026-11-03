@@ -109,3 +109,7 @@
 #pagebreak()
 
 #include "../05_charts/09_histogram/histogram.typ"
+
+#pagebreak()
+
+#include "../05_charts/10_ecdf/ecdf.typ"
