@@ -137,3 +137,7 @@
 #pagebreak()
 
 #include "../05_charts/16_forest/forest.typ"
+
+#pagebreak()
+
+#include "../05_charts/17_slope/slope.typ"
