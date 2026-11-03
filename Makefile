@@ -49,6 +49,9 @@ data:
 	$(PYTHON) 05_charts/26_corr_matrix/scripts/make_data.py
 	$(PYTHON) 05_charts/27_kaplan_meier/scripts/make_data.py
 	$(PYTHON) 05_charts/28_cumulative_incidence/scripts/make_data.py
+	$(PYTHON) 05_charts/29_roc/scripts/make_data.py
+	$(PYTHON) 05_charts/30_precision_recall/scripts/make_data.py
+	$(PYTHON) 05_charts/31_calibration/scripts/make_data.py
 
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
@@ -117,6 +120,12 @@ figures: data
 	$(PYTHON) 05_charts/27_kaplan_meier/scripts/good_plot.py
 	$(PYTHON) 05_charts/28_cumulative_incidence/scripts/bad_plot.py
 	$(PYTHON) 05_charts/28_cumulative_incidence/scripts/good_plot.py
+	$(PYTHON) 05_charts/29_roc/scripts/bad_plot.py
+	$(PYTHON) 05_charts/29_roc/scripts/good_plot.py
+	$(PYTHON) 05_charts/30_precision_recall/scripts/bad_plot.py
+	$(PYTHON) 05_charts/30_precision_recall/scripts/good_plot.py
+	$(PYTHON) 05_charts/31_calibration/scripts/bad_plot.py
+	$(PYTHON) 05_charts/31_calibration/scripts/good_plot.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf

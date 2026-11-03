@@ -107,4 +107,7 @@
 | 26_corr_matrix | ✅ готов |
 | 27_kaplan_meier | ✅ готов |
 | 28_cumulative_incidence | ✅ готов |
-| 29_roc … 33_funnel | ⏳ по запросу |
+| 29_roc | ✅ готов |
+| 30_precision_recall | ✅ готов |
+| 31_calibration | ✅ готов |
+| 32_caterpillar … 33_funnel | ⏳ по запросу |

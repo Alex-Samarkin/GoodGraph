@@ -185,3 +185,15 @@
 #pagebreak()
 
 #include "../05_charts/28_cumulative_incidence/cumulative_incidence.typ"
+
+#pagebreak()
+
+#include "../05_charts/29_roc/roc.typ"
+
+#pagebreak()
+
+#include "../05_charts/30_precision_recall/precision_recall.typ"
+
+#pagebreak()
+
+#include "../05_charts/31_calibration/calibration.typ"
