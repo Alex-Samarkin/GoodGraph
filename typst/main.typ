@@ -72,3 +72,7 @@
 #pagebreak()
 
 #include "../04_overview/overview.typ"
+
+#pagebreak()
+
+#include "../05_charts/01_line/line.typ"

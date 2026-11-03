@@ -12,7 +12,7 @@
 | 2 | [`02_python/`](02_python/) | Экосистема Python: matplotlib, seaborn, plotnine; настройка среды через uv | ✅ готов |
 | 3 | [`03_requirements/`](03_requirements/) | Требования: цветовые гаммы, шрифты, размеры, форматы | ✅ готов |
 | 4 | [`04_overview/`](04_overview/) | Основные виды научных графиков и области применения | ✅ готов |
-| 5 | `05_charts/` | Каждый вид графика: данные → плохой пример → разбор → правильный пример | ⏳ по запросу |
+| 5 | [`05_charts/`](05_charts/) | Каждый график: данные → плохой пример → разбор → правильный пример | 🚧 01_line готов |
 | 6 | `06_conclusion/` | Общее заключение | ⏳ по запросу |
 | 7 | `07_publication/` | Подготовка графиков к публикации в научном журнале | ⏳ по запросу |
 | 8 | `08_sources/` | Источники и работы о визуализации данных и ПО для графиков | ⏳ по запросу |
@@ -31,6 +31,7 @@ GoodGraph/
 ├── 02_python/              # раздел 2: библиотеки, uv, сравнение
 ├── 03_requirements/        # раздел 3: цвет, шрифты, размеры, форматы
 ├── 04_overview/            # раздел 4: карта видов графиков
+├── 05_charts/              # раздел 5: графики, по одному на папку
 ├── typst/                  # сборка всей методички в PDF
 ├── build/                  # готовый PDF
 └── Makefile                # команды: данные, рисунки, PDF
@@ -58,7 +59,7 @@ GoodGraph/
 # 1. Окружение и зависимости
 uv sync
 
-# 2. Данные и рисунки разделов 1–4
+# 2. Данные и рисунки разделов 1–5
 uv run python 01_principles/scripts/make_data.py
 uv run python 01_principles/scripts/bad_plot.py
 uv run python 01_principles/scripts/good_plot.py
@@ -68,6 +69,9 @@ uv run python 03_requirements/scripts/plot_palettes.py
 uv run python 03_requirements/scripts/plot_cvd.py
 uv run python 03_requirements/scripts/plot_fonts.py
 uv run python 04_overview/scripts/plot_chart_map.py
+uv run python 05_charts/01_line/scripts/make_data.py
+uv run python 05_charts/01_line/scripts/bad_plot.py
+uv run python 05_charts/01_line/scripts/good_plot.py
 
 # 3. PDF всей методички
 make pdf          # → build/metodichka.pdf

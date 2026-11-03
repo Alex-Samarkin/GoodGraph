@@ -21,6 +21,7 @@ sync:
 data:
 	$(PYTHON) 01_principles/scripts/make_data.py
 	$(PYTHON) 02_python/scripts/make_data.py
+	$(PYTHON) 05_charts/01_line/scripts/make_data.py
 
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
@@ -30,6 +31,8 @@ figures: data
 	$(PYTHON) 03_requirements/scripts/plot_cvd.py
 	$(PYTHON) 03_requirements/scripts/plot_fonts.py
 	$(PYTHON) 04_overview/scripts/plot_chart_map.py
+	$(PYTHON) 05_charts/01_line/scripts/bad_plot.py
+	$(PYTHON) 05_charts/01_line/scripts/good_plot.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf
