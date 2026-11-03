@@ -129,3 +129,7 @@
 #pagebreak()
 
 #include "../05_charts/14_dot_ci/dot_ci.typ"
+
+#pagebreak()
+
+#include "../05_charts/15_bar/bar.typ"
