@@ -85,4 +85,5 @@
 | 04_small_multiples | ✅ готов |
 | 05_scatter | ✅ готов |
 | 06_hexbin | ✅ готов |
-| 07_contour … 33_funnel | ⏳ по запросу |
+| 07_contour | ✅ готов |
+| 08_loess … 33_funnel | ⏳ по запросу |

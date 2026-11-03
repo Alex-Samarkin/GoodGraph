@@ -97,3 +97,7 @@
 #pagebreak()
 
 #include "../05_charts/06_hexbin/hexbin.typ"
+
+#pagebreak()
+
+#include "../05_charts/07_contour/contour.typ"
