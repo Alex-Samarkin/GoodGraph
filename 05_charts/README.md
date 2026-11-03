@@ -84,4 +84,5 @@
 | 03_area | ✅ готов |
 | 04_small_multiples | ✅ готов |
 | 05_scatter | ✅ готов |
-| 06_hexbin … 33_funnel | ⏳ по запросу |
+| 06_hexbin | ✅ готов |
+| 07_contour … 33_funnel | ⏳ по запросу |

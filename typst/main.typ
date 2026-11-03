@@ -93,3 +93,7 @@
 #pagebreak()
 
 #include "../05_charts/05_scatter/scatter.typ"
+
+#pagebreak()
+
+#include "../05_charts/06_hexbin/hexbin.typ"
