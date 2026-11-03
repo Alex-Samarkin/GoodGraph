@@ -82,4 +82,5 @@
 | 01_line | ✅ готов |
 | 02_step | ✅ готов |
 | 03_area | ✅ готов |
-| 04_small_multiples … 33_funnel | ⏳ по запросу |
+| 04_small_multiples | ✅ готов |
+| 05_scatter … 33_funnel | ⏳ по запросу |

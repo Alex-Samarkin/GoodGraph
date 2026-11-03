@@ -85,3 +85,7 @@
 #pagebreak()
 
 #include "../05_charts/03_area/area.typ"
+
+#pagebreak()
+
+#include "../05_charts/04_small_multiples/small_multiples.typ"
