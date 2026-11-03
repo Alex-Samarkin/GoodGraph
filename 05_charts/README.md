@@ -98,4 +98,5 @@
 | 17_slope | ✅ готов |
 | 18_paired_dot | ✅ готов |
 | 19_bland_altman | ✅ готов |
-| 20_stacked_bar … 33_funnel | ⏳ по запросу |
+| 20_stacked_bar | ✅ готов |
+| 21_bar_100 … 33_funnel | ⏳ по запросу |

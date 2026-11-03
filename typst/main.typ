@@ -149,3 +149,7 @@
 #pagebreak()
 
 #include "../05_charts/19_bland_altman/bland_altman.typ"
+
+#pagebreak()
+
+#include "../05_charts/20_stacked_bar/stacked_bar.typ"
