@@ -24,6 +24,7 @@ data:
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
 	$(PYTHON) 01_principles/scripts/good_plot.py
+	$(PYTHON) 02_python/scripts/compare_libraries.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf

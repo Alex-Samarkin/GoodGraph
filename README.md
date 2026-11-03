@@ -9,7 +9,7 @@
 | Раздел | Папка | Содержание | Статус |
 |---|---|---|---|
 | 1 | [`01_principles/`](01_principles/) | Принципы качественной и правильной графики: смысл, честность, нормативы, оформление | ✅ готов |
-| 2 | `02_python/` | Экосистема Python: matplotlib, seaborn, plotnine; настройка среды через uv | ⏳ по запросу |
+| 2 | [`02_python/`](02_python/) | Экосистема Python: matplotlib, seaborn, plotnine; настройка среды через uv | ✅ готов |
 | 3 | `03_requirements/` | Требования к научной графике: цветовые гаммы, шрифты, размеры, форматы | ⏳ по запросу |
 | 4 | `04_overview/` | Основные виды научных графиков и области их применения | ⏳ по запросу |
 | 5 | `05_charts/` | Каждый вид графика: данные → плохой пример → разбор → правильный пример | ⏳ по запросу |
@@ -28,6 +28,7 @@ GoodGraph/
 ├── data/                   # все наборы данных (NN_dataset.csv)
 ├── images/                 # все рисунки (SVG + PNG)
 ├── 01_principles/          # раздел 1: текст, скрипты, typst-дубликат
+├── 02_python/              # раздел 2: библиотеки, uv, сравнение
 ├── typst/                  # сборка всей методички в PDF
 ├── build/                  # готовый PDF
 └── Makefile                # команды: данные, рисунки, PDF
@@ -43,8 +44,8 @@ GoodGraph/
 ├── line.typ           # тот же текст для Typst
 └── scripts/
     ├── make_data.py   # генерация реалистичных данных → data/NN_dataset.csv
-    ├── bad_plot.py    # неудачный график → images/NN_bad_*.{svg,png}
-    └── good_plot.py   # правильный график → images/NN_good_*.{svg,png}
+    ├── bad_plot.py    # неудачный график → images/05_NN_bad_*.{svg,png}
+    └── good_plot.py   # правильный график → images/05_NN_good_*.{svg,png}
 ```
 
 ## Быстрый старт
@@ -55,10 +56,11 @@ GoodGraph/
 # 1. Окружение и зависимости
 uv sync
 
-# 2. Данные и рисунки раздела 1
+# 2. Данные и рисунки разделов 1–2
 uv run python 01_principles/scripts/make_data.py
 uv run python 01_principles/scripts/bad_plot.py
 uv run python 01_principles/scripts/good_plot.py
+uv run python 02_python/scripts/compare_libraries.py
 
 # 3. PDF всей методички
 make pdf          # → build/metodichka.pdf
@@ -77,8 +79,8 @@ uv sync
 
 - **Один вид графика — одна папка.** Скрипты не зависят от других скриптов:
   `make_data.py` пишет CSV, `bad_plot.py` и `good_plot.py` читают только этот CSV.
-- **Данные — в `data/`, рисунки — в `images/`.** Имена: `NN_dataset.csv`,
-  `NN_bad_<тип>.{svg,png}`, `NN_good_<тип>.{svg,png}`.
+- **Данные — в `data/`, рисунки — в `images/`.** Данные: `NN_dataset.csv`;
+  рисунки: `SS_<...>` для разделов и `05_NN_<...>` для видов графиков.
 - **Все рисунки сохраняются в SVG и PNG** (вектор + растр для просмотра).
 - **Текст и Typst синхронны.** При правке `.md` обязательно правится парный `.typ`.
 - **Комментарии и подписи — по-русски**, код — по [PEP 8](https://peps.python.org/pep-0008/),
