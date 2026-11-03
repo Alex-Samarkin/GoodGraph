@@ -117,3 +117,7 @@
 #pagebreak()
 
 #include "../05_charts/11_box/box.typ"
+
+#pagebreak()
+
+#include "../05_charts/12_violin/violin.typ"
