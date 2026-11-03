@@ -39,6 +39,7 @@ data:
 	$(PYTHON) 05_charts/16_forest/scripts/make_data.py
 	$(PYTHON) 05_charts/17_slope/scripts/make_data.py
 	$(PYTHON) 05_charts/18_paired_dot/scripts/make_data.py
+	$(PYTHON) 05_charts/19_bland_altman/scripts/make_data.py
 
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
@@ -87,6 +88,8 @@ figures: data
 	$(PYTHON) 05_charts/17_slope/scripts/good_plot.py
 	$(PYTHON) 05_charts/18_paired_dot/scripts/bad_plot.py
 	$(PYTHON) 05_charts/18_paired_dot/scripts/good_plot.py
+	$(PYTHON) 05_charts/19_bland_altman/scripts/bad_plot.py
+	$(PYTHON) 05_charts/19_bland_altman/scripts/good_plot.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf

@@ -97,4 +97,5 @@
 | 16_forest | ✅ готов |
 | 17_slope | ✅ готов |
 | 18_paired_dot | ✅ готов |
-| 19_bland_altman … 33_funnel | ⏳ по запросу |
+| 19_bland_altman | ✅ готов |
+| 20_stacked_bar … 33_funnel | ⏳ по запросу |

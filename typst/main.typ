@@ -145,3 +145,7 @@
 #pagebreak()
 
 #include "../05_charts/18_paired_dot/paired_dot.typ"
+
+#pagebreak()
+
+#include "../05_charts/19_bland_altman/bland_altman.typ"
