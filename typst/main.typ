@@ -121,3 +121,7 @@
 #pagebreak()
 
 #include "../05_charts/12_violin/violin.typ"
+
+#pagebreak()
+
+#include "../05_charts/13_strip/strip.typ"
