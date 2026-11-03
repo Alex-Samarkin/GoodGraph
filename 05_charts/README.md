@@ -110,4 +110,5 @@
 | 29_roc | ✅ готов |
 | 30_precision_recall | ✅ готов |
 | 31_calibration | ✅ готов |
-| 32_caterpillar … 33_funnel | ⏳ по запросу |
+| 32_caterpillar | ✅ готов |
+| 33_funnel | ✅ готов |

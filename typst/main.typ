@@ -197,3 +197,11 @@
 #pagebreak()
 
 #include "../05_charts/31_calibration/calibration.typ"
+
+#pagebreak()
+
+#include "../05_charts/32_caterpillar/caterpillar.typ"
+
+#pagebreak()
+
+#include "../05_charts/33_funnel/funnel.typ"

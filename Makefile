@@ -52,6 +52,8 @@ data:
 	$(PYTHON) 05_charts/29_roc/scripts/make_data.py
 	$(PYTHON) 05_charts/30_precision_recall/scripts/make_data.py
 	$(PYTHON) 05_charts/31_calibration/scripts/make_data.py
+	$(PYTHON) 05_charts/32_caterpillar/scripts/make_data.py
+	$(PYTHON) 05_charts/33_funnel/scripts/make_data.py
 
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
@@ -126,6 +128,10 @@ figures: data
 	$(PYTHON) 05_charts/30_precision_recall/scripts/good_plot.py
 	$(PYTHON) 05_charts/31_calibration/scripts/bad_plot.py
 	$(PYTHON) 05_charts/31_calibration/scripts/good_plot.py
+	$(PYTHON) 05_charts/32_caterpillar/scripts/bad_plot.py
+	$(PYTHON) 05_charts/32_caterpillar/scripts/good_plot.py
+	$(PYTHON) 05_charts/33_funnel/scripts/bad_plot.py
+	$(PYTHON) 05_charts/33_funnel/scripts/good_plot.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf
