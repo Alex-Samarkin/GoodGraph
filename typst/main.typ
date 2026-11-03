@@ -52,6 +52,7 @@
 // ---------------------------------------------------------------------------
 // Содержание
 // ---------------------------------------------------------------------------
+#show outline: set text(size: 9pt)
 #outline(title: "Содержание", indent: 1.2em, depth: 2)
 
 #pagebreak()
@@ -76,3 +77,7 @@
 #pagebreak()
 
 #include "../05_charts/01_line/line.typ"
+
+#pagebreak()
+
+#include "../05_charts/02_step/step.typ"
