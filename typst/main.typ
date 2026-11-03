@@ -105,3 +105,7 @@
 #pagebreak()
 
 #include "../05_charts/08_loess/loess.typ"
+
+#pagebreak()
+
+#include "../05_charts/09_histogram/histogram.typ"

@@ -29,6 +29,7 @@ data:
 	$(PYTHON) 05_charts/06_hexbin/scripts/make_data.py
 	$(PYTHON) 05_charts/07_contour/scripts/make_data.py
 	$(PYTHON) 05_charts/08_loess/scripts/make_data.py
+	$(PYTHON) 05_charts/09_histogram/scripts/make_data.py
 
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
@@ -54,6 +55,8 @@ figures: data
 	$(PYTHON) 05_charts/07_contour/scripts/good_plot.py
 	$(PYTHON) 05_charts/08_loess/scripts/bad_plot.py
 	$(PYTHON) 05_charts/08_loess/scripts/good_plot.py
+	$(PYTHON) 05_charts/09_histogram/scripts/bad_plot.py
+	$(PYTHON) 05_charts/09_histogram/scripts/good_plot.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf
