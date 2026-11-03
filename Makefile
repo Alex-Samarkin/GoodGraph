@@ -31,6 +31,7 @@ data:
 	$(PYTHON) 05_charts/08_loess/scripts/make_data.py
 	$(PYTHON) 05_charts/09_histogram/scripts/make_data.py
 	$(PYTHON) 05_charts/10_ecdf/scripts/make_data.py
+	$(PYTHON) 05_charts/11_box/scripts/make_data.py
 
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
@@ -60,6 +61,10 @@ figures: data
 	$(PYTHON) 05_charts/09_histogram/scripts/good_plot.py
 	$(PYTHON) 05_charts/10_ecdf/scripts/bad_plot.py
 	$(PYTHON) 05_charts/10_ecdf/scripts/good_plot.py
+	$(PYTHON) 05_charts/11_box/scripts/bad_plot.py
+	$(PYTHON) 05_charts/11_box/scripts/good_box_points.py
+	$(PYTHON) 05_charts/11_box/scripts/good_violin_box.py
+	$(PYTHON) 05_charts/11_box/scripts/good_box_hist.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf

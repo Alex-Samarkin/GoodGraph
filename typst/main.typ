@@ -113,3 +113,7 @@
 #pagebreak()
 
 #include "../05_charts/10_ecdf/ecdf.typ"
+
+#pagebreak()
+
+#include "../05_charts/11_box/box.typ"
