@@ -125,3 +125,7 @@
 #pagebreak()
 
 #include "../05_charts/13_strip/strip.typ"
+
+#pagebreak()
+
+#include "../05_charts/14_dot_ci/dot_ci.typ"
