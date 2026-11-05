@@ -39,7 +39,7 @@ uv run python 05_charts/19_bland_altman/scripts/bad_plot.py
 uv run python 05_charts/19_bland_altman/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - по X — среднее двух методов;
 - bias и 95 % LoA;

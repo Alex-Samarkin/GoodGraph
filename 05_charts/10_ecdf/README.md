@@ -39,7 +39,7 @@ uv run python 05_charts/10_ecdf/scripts/bad_plot.py
 uv run python 05_charts/10_ecdf/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - ECDF не требует бинов;
 - ось X не обрезает хвост;

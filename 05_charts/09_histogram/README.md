@@ -38,7 +38,7 @@ uv run python 05_charts/09_histogram/scripts/bad_plot.py
 uv run python 05_charts/09_histogram/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - ширина бина — главный параметр;
 - не обрезайте хвосты;

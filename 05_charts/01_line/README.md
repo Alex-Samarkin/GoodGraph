@@ -48,7 +48,7 @@ uv run python 05_charts/01_line/scripts/good_plot.py
 typst compile --root . 05_charts/01_line/line.typ build/05_01_line.pdf
 ```
 
-## Что важно
+## На что смотреть
 
 - линия — для времени и упорядоченной оси, не для категорий;
 - ось Y может не начинаться с нуля, но не должна обрезать данные;

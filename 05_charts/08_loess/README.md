@@ -39,7 +39,7 @@ uv run python 05_charts/08_loess/scripts/bad_plot.py
 uv run python 05_charts/08_loess/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - LOESS показывает тренд, а не причинность;
 - указывайте `frac` и n;

@@ -39,7 +39,7 @@ uv run python 05_charts/04_small_multiples/scripts/bad_plot.py
 uv run python 05_charts/04_small_multiples/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - одна панель — одна серия;
 - общая шкала X и Y — контракт сравнения;

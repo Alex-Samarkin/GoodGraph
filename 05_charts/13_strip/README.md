@@ -39,7 +39,7 @@ uv run python 05_charts/13_strip/scripts/bad_plot.py
 uv run python 05_charts/13_strip/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - strip — для небольших выборок;
 - jitter воспроизводимый и умеренный;

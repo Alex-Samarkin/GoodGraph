@@ -41,7 +41,7 @@ uv run python 05_charts/03_area/scripts/bad_plot.py
 uv run python 05_charts/03_area/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - area chart оправдан, когда площадь — смысл (AUC, накопление);
 - заливка обязательно от нуля;

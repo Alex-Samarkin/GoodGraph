@@ -39,7 +39,7 @@ uv run python 05_charts/20_stacked_bar/scripts/bad_plot.py
 uv run python 05_charts/20_stacked_bar/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - нулевая база;
 - 2–4 сегмента;

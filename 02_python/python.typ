@@ -90,7 +90,7 @@ goodgraph (rcParams, палитры, размеры, save)
 SVG / PNG / PDF
 ```
 
-Ключевой факт: *seaborn и plotnine в итоге рисуют через matplotlib*.
+Дело в том, что *seaborn и plotnine в итоге рисуют через matplotlib*.
 Поэтому понимание `Figure`/`Axes`, `rcParams` и `savefig` полезно даже тем,
 кто пишет только на plotnine. И наоборот: matplotlib не мешает использовать
 seaborn для статистики, а потом дорабатывать оси вручную.

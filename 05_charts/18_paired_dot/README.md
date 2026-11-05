@@ -39,7 +39,7 @@ uv run python 05_charts/18_paired_dot/scripts/bad_plot.py
 uv run python 05_charts/18_paired_dot/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - paired dot — для 10–50 пар;
 - видны линии и точки;

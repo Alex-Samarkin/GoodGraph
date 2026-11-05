@@ -39,7 +39,7 @@ uv run python 05_charts/14_dot_ci/scripts/bad_plot.py
 uv run python 05_charts/14_dot_ci/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - CI ≠ SD;
 - для долей — Уилсон;

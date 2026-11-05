@@ -39,7 +39,7 @@ uv run python 05_charts/05_scatter/scripts/bad_plot.py
 uv run python 05_charts/05_scatter/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - точки важнее линии;
 - оси не обрезают данные;

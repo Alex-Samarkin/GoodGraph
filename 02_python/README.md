@@ -46,7 +46,7 @@ uv run python 02_python/scripts/compare_libraries.py
 make figures
 ```
 
-## Что важно в разделе
+## На что смотреть в разделе
 
 - matplotlib — императивный контроль, seaborn — данные и статистика,
   plotnine — грамматика графики;

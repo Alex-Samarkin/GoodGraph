@@ -45,7 +45,7 @@ uv run python 05_charts/11_box/scripts/good_violin_box.py
 uv run python 05_charts/11_box/scripts/good_box_hist.py
 ```
 
-## Что важно
+## На что смотреть
 
 - boxplot скрывает форму — добавляйте точки/ violin / histogram;
 - не обрезайте усы и выбросы;

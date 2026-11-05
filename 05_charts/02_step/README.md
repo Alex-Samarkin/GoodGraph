@@ -40,7 +40,7 @@ uv run python 05_charts/02_step/scripts/bad_plot.py
 uv run python 05_charts/02_step/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - ступень — для величины, постоянной между событиями;
 - `ax.step(..., where="post")`, а не `ax.plot`;

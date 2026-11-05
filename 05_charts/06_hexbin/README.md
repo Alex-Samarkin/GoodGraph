@@ -39,7 +39,7 @@ uv run python 05_charts/06_hexbin/scripts/bad_plot.py
 uv run python 05_charts/06_hexbin/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - hexbin — для больших n, не для отдельных наблюдений;
 - цвет = число пациентов в бине, а не значение;

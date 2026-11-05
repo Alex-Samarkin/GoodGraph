@@ -39,7 +39,7 @@ uv run python 05_charts/07_contour/scripts/bad_plot.py
 uv run python 05_charts/07_contour/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - contour — оценка плотности, а не «истина»;
 - сглаживание и число уровней — параметры;

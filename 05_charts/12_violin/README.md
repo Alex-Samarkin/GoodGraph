@@ -43,7 +43,7 @@ uv run python 05_charts/12_violin/scripts/good_violin_quart.py
 uv run python 05_charts/12_violin/scripts/good_violin_box.py
 ```
 
-## Что важно
+## На что смотреть
 
 - violin показывает форму, но не заменяет сводку;
 - внутри — квартили или коробка;

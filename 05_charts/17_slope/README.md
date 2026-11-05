@@ -40,7 +40,7 @@ uv run python 05_charts/17_slope/scripts/bad_plot.py
 uv run python 05_charts/17_slope/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - slope — для парных агрегатов, не для сотен траекторий;
 - подписи групп и значений;

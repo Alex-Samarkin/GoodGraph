@@ -41,7 +41,7 @@ uv run python 05_charts/16_forest/scripts/bad_plot.py
 uv run python 05_charts/16_forest/scripts/good_plot.py
 ```
 
-## Что важно
+## На что смотреть
 
 - для OR/RR/HR — лог-ось;
 - линия 1 обязательна;
