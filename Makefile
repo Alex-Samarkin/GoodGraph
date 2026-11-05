@@ -11,7 +11,7 @@ UV ?= uv
 PYTHON ?= $(UV) run python
 TYPST ?= typst
 
-.PHONY: all sync data figures pdf check clean
+.PHONY: all sync data figures pdf check clean journal-style
 
 all: figures pdf
 
@@ -54,6 +54,7 @@ data:
 	$(PYTHON) 05_charts/31_calibration/scripts/make_data.py
 	$(PYTHON) 05_charts/32_caterpillar/scripts/make_data.py
 	$(PYTHON) 05_charts/33_funnel/scripts/make_data.py
+	$(PYTHON) 07_publication/scripts/make_data.py
 
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
@@ -132,6 +133,7 @@ figures: data
 	$(PYTHON) 05_charts/32_caterpillar/scripts/good_plot.py
 	$(PYTHON) 05_charts/33_funnel/scripts/bad_plot.py
 	$(PYTHON) 05_charts/33_funnel/scripts/good_plot.py
+	$(PYTHON) 07_publication/scripts/plot_journal.py
 
 pdf:
 	$(TYPST) compile --root . typst/main.typ build/metodichka.pdf
@@ -145,3 +147,6 @@ clean:
 # Удаляет и PDF — используйте осознанно.
 distclean: clean
 	rm -f build/*.pdf
+
+journal-style:
+	$(PYTHON) 07_publication/scripts/make_journal_style.py --preset nature --output build/journal_style_generated.py

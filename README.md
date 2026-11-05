@@ -14,7 +14,7 @@
 | 4 | [`04_overview/`](04_overview/) | Основные виды научных графиков и области применения | ✅ готов |
 | 5 | [`05_charts/`](05_charts/) | Каждый график: данные → плохой пример → разбор → правильный пример | ✅ 01_line … 33_funnel готовы |
 | 6 | [`06_conclusion/`](06_conclusion/) | Общее заключение: принципы, алгоритм, таблица выбора, чек-листы | ✅ готов |
-| 7 | `07_publication/` | Подготовка графиков к публикации в научном журнале | ⏳ по запросу |
+| 7 | [`07_publication/`](07_publication/) | Подготовка рисунков к публикации, журнальные и web-настройки, экспорт | ✅ готов |
 | 8 | `08_sources/` | Источники и работы о визуализации данных и ПО для графиков | ⏳ по запросу |
 
 ## Структура репозитория
@@ -171,6 +171,9 @@ uv run python 05_charts/32_caterpillar/scripts/good_plot.py
 uv run python 05_charts/33_funnel/scripts/make_data.py
 uv run python 05_charts/33_funnel/scripts/bad_plot.py
 uv run python 05_charts/33_funnel/scripts/good_plot.py
+uv run python 07_publication/scripts/make_data.py
+uv run python 07_publication/scripts/plot_journal.py
+uv run python 07_publication/scripts/make_journal_style.py --preset nature --output build/journal_style_generated.py
 
 # 3. PDF всей методички
 make pdf          # → build/metodichka.pdf

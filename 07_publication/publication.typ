@@ -1,0 +1,316 @@
+// Раздел 7. Подготовка рисунков к публикации.
+// Сборка: typst compile --root . 07_publication/publication.typ build/07_publication.pdf
+
+#set page(paper: "a4", margin: (x: 21mm, y: 20mm), numbering: "1")
+#set text(font: ("Liberation Serif", "DejaVu Serif"), size: 10.5pt, lang: "ru", hyphenate: true)
+#set par(justify: true, leading: 0.64em, spacing: 1.05em)
+#set heading(numbering: none)
+#show heading: set text(font: ("Liberation Sans", "DejaVu Sans"), weight: "bold")
+#show heading: set text(hyphenate: false)
+#show heading.where(level: 1): set text(size: 17pt)
+#show heading.where(level: 2): set text(size: 13.5pt)
+#show heading.where(level: 3): set text(size: 11.5pt)
+#show heading: it => block(above: 1.15em, below: 0.55em, it)
+#set list(indent: 1.2em, spacing: 0.5em)
+#set enum(indent: 1.2em, spacing: 0.5em)
+#set table(stroke: 0.5pt + luma(190), inset: (x: 4pt, y: 3pt))
+#show table: set text(size: 8pt)
+#show raw: set text(font: "DejaVu Sans Mono", size: 8.2pt)
+#show raw.where(block: true): it => block(fill: luma(247), inset: 8pt, radius: 2pt, width: 100%, breakable: false, it)
+
+#heading(level: 1)[7. Публикация]
+
+Публикация — это не «сдать картинку», а передать редакции
+*воспроизводимый, соответствующий требованиям и однозначно читаемый*
+файл. Большинство отказов по рисункам связаны не с наукой, а с
+форматом: не та ширина, мелкий шрифт, RGB вместо CMYK, растр вместо
+вектора, отсутствие _n_ и единиц.
+
+В этом разделе: собственный датасет и журнальный рисунок, таблица
+настроек, модуль `journal_style.py`, интерактивный генератор темы,
+экспорт в SVG/PDF/PNG/TIFF и настройки для web/HTML.
+
+#heading(level: 2)[7.1 Что требует журнал]
+
+Требования различаются, но проверять нужно одни и те же пункты:
+
+- *физический размер* — ширина одной/двух колонок в мм;
+- *шрифт* — семейство, кегль, встраивание/кривые;
+- *разрешение* — 300–600 dpi для растра, вектор для линий;
+- *формат* — PDF/SVG/EPS, TIFF, PNG; иногда только TIFF;
+- *цвет* — RGB для онлайн, CMYK по запросу; sRGB;
+- *читаемость* — 6–7 pt минимум, контраст, CVD;
+- *подпись и методы* — что, _n_, статистика, ПО;
+- *права* — лицензии на изображения и шрифты.
+
+*Правило:* сначала читайте `author guidelines` журнала, затем
+используйте таблицу 7.1 как отправную точку. Не наоборот.
+
+#heading(level: 2)[7.2 Данные и журнальный рисунок]
+
+Собственный датасет: 90 пациентов, три группы, САД на 0/4/8/12-й
+неделе. Генератор — `07_publication/scripts/make_data.py` →
+`data/07_publication_dataset.csv`.
+
+Рисунок 7.1 — двухпанельный, 170 × 95 мм: A — средние САД с 95 % CI,
+B — изменение к 12-й неделе с 95 % CI. Шрифт 7 pt, панели A/B,
+прямые подписи, без заголовка внутри рисунка: сообщение несёт подпись.
+
+#block(breakable: false)[
+  #align(center)[#image("../images/07_journal_figure.png", width: 100%)]
+  #v(2pt)
+  #align(center)[#text(size: 8.5pt, style: "italic")[
+    Рисунок 7.1. Журнальный рисунок 170 × 95 мм: панели A и B, 7 pt,
+    95 % CI, прямые подписи.
+  ]]
+]
+
+Решения, которые делают его «журнальным»:
+
++ *Точный размер 170 × 95 мм* — две колонки, без `bbox_inches="tight"`.
++ *Шрифт 7 pt* — читается в печати; подписи не меньше 6 pt.
++ *Две панели* с метками A/B; каждая отвечает на свой вопрос.
++ *95 % CI*, а не SD: показана точность среднего.
++ *Прямые подписи* вместо легенды в панели A.
++ *Цвета Okabe–Ito*; смысл не только в цвете.
++ *Нет заголовка* внутри рисунка — заголовок и вывод в подписи.
++ *Единицы и недели* на осях; _n_ = 30 на группу — в подписи.
+
+Пример подписи:
+
+#quote(block: true)[
+  *Рисунок 7.1.* САД по группам за 12 недель. (A) Среднее ± 95 % ДИ;
+  (B) изменение к 12-й неделе, среднее и 95 % ДИ. _n_ = 30 на группу.
+  CI рассчитаны как 1,96 × SEM (A) и t-интервал (B). Горизонтальная
+  линия в B — отсутствие изменения. Данные: синтетический набор
+  `07_publication_dataset.csv`; код: `plot_journal.py`.
+]
+
+#heading(level: 2)[7.3 Таблица рекомендованных настроек]
+
+#table(
+  columns: (1.2fr, 2.4fr, 2.0fr, 2.2fr),
+  table.header(repeat: true, [*Параметр*], [*Печать / журнал*], [*Web / HTML*], [*Комментарий*]),
+  [Ширина], [89 мм одна, 183 мм две], [640–1200 px], [проверьте колонки журнала],
+  [Поля], [0, точный размер], [CSS padding], [не обрезайте `tight`],
+  [Шрифт], [Arial/Helvetica, 6–8 pt], [14–18 px], [встройте или в кривые],
+  [Кегль осей], [6–7 pt], [14–16 px], [минимум 6 pt],
+  [Линии], [0,5–1,0 pt], [1,5–2 px], [тоньше — пропадут в печати],
+  [Маркеры], [2–4 pt], [6–8 px], [не меньше 2 pt],
+  [Сетка], [светлая, 0,4 pt], [`#E6E6E6`, 1 px], [не конкурирует],
+  [Разрешение], [300–600 dpi], [96/192 dpi (1x/2x)], [вектор лучше растра],
+  [Форматы], [PDF/SVG/EPS, TIFF], [SVG/PNG/WebP], [TIFF LZW для растра],
+  [Цвет], [RGB, CMYK по запросу], [sRGB], [проверьте профиль],
+  [Фон], [белый], [белый/прозрачный], [печать — белый],
+  [Заголовок], [вне рисунка], [HTML `h2`], [подпись несёт вывод],
+  [Alt-text], [в подписи/системе], [`alt=""`], [обязателен для web],
+  [Метаданные], [Creator, без даты], [—], [воспроизводимость],
+)
+
+#heading(level: 2)[7.4 journal_style.py: пресеты и экспорт]
+
+Модуль `07_publication/scripts/journal_style.py` содержит пресеты
+`nature`, `elsevier`, `ieee`, `web`, функцию `apply_journal_style()` и
+экспорт `export_journal()`.
+
+```python
+from journal_style import apply_journal_style, export_journal
+
+apply_journal_style("nature", base_pt=7)       # rcParams
+fig, ax = plt.subplots(figsize=(170 / 25.4, 95 / 25.4))
+...
+export_journal(fig, "07_journal_figure",
+               formats=("svg", "pdf", "png", "tiff"), dpi=600)
+```
+
+Что важно в экспорте:
+
+- `bbox_inches=None` — физический размер остаётся ровно 170 мм;
+- `svg.fonttype="path"` — текст в SVG не зависит от шрифтов у редакции;
+- `pdf.fonttype=42` — TrueType, текст остаётся редактируемым;
+- TIFF сохраняется с LZW-сжатием и 600 dpi;
+- метаданные не содержат текущую дату, поэтому файлы воспроизводимы.
+
+*CMYK.* Matplotlib работает в RGB. Если журнал требует CMYK,
+конвертируйте PDF/TIFF в Illustrator/Inkscape/Ghostscript и проверьте
+чёрный текст (не rich black) и предупреждения о цветовом профиле.
+
+#heading(level: 2)[7.5 Генератор настроек в диалоге]
+
+Скрипт `07_publication/scripts/make_journal_style.py` задаёт вопросы
+и собирает готовый модуль темы.
+
+```bash
+uv run python 07_publication/scripts/make_journal_style.py --interactive
+```
+
+Диалог (Enter — значение по умолчанию):
+
+```text
+Пресет [nature]: elsevier
+Ширина одной колонки, мм [90.0]: 90
+Ширина двух колонок, мм [190.0]: 190
+Шрифт [Arial]: Helvetica
+Базовый кегль, pt [8.0]: 8
+DPI для растра [600]: 600
+Форматы через запятую [svg,pdf,png,tiff]: pdf,tiff
+Палитра (okabe/tol/grey) [okabe]: okabe
+Ширина web-канвы, px [960]: 1200
+Базовый кегль web, px [16]: 16
+```
+
+Результат: `build/journal_style_generated.py` и `.json`. Модуль можно
+импортировать:
+
+```python
+from journal_style_generated import apply
+apply()
+```
+
+Без диалога:
+
+```bash
+uv run python 07_publication/scripts/make_journal_style.py \
+    --preset nature --output build/journal_style_generated.py
+```
+
+Сгенерированный файл — черновик. Сверьте ширину, шрифт и цвет с
+актуальными требованиями журнала.
+
+#heading(level: 2)[7.6 Форматы: что и когда отправлять]
+
+#table(
+  columns: (1fr, 2fr, 2fr, 2fr),
+  table.header(repeat: true, [*Формат*], [*Когда*], [*Плюсы*], [*Минусы*]),
+  [SVG], [web, вектор], [масштаб, малый размер], [текст в кривых, нет CMYK],
+  [PDF], [печать, вектор], [шрифты, точный размер], [нужен контроль профиля],
+  [TIFF], [требование журнала], [растр без потерь, LZW], [большой файл],
+  [PNG], [web/превью], [прозрачность, точный px], [не для печати линий],
+  [EPS], [legacy], [вектор], [устаревает, шрифты],
+  [WebP], [web], [малый размер], [не для журнала],
+)
+
+Не отправляйте скриншот, PNG из PowerPoint и растр с 72 dpi.
+Векторные линии и текст должны оставаться векторными; растр — только
+для фото/полутонов.
+
+#heading(level: 2)[7.7 Web/HTML: только настройки]
+
+Никаких интерактивных панелей — только параметры статического рисунка.
+
+- *Канва:* 960 или 1200 px; высота 480–720 px.
+- *Кегль:* 16 px база, 14 px минимум; 1x/2x.
+- *Формат:* SVG для линий, PNG/WebP для растра; sRGB.
+- *CSS:* `img { max-width: 100%; height: auto; }`.
+- *Retina:* `srcset="fig.png 1x, fig@2x.png 2x"`.
+- *Alt-text:* `alt="САД снижается..."`; не «рисунок 1».
+- *Контраст:* ≥ 4,5:1 для текста; не только цвет.
+- *Тёмная тема:* проверьте фон/линии; лучше отдавать светлый вариант.
+- *Шрифты:* системный стек `Inter, Arial, sans-serif`.
+
+```html
+<img src="07_journal_web.png"
+     srcset="07_journal_web.png 1x, 07_journal_web@2x.png 2x"
+     width="960" height="480"
+     alt="САД снижается сильнее в группе препарата B к 12-й неделе"
+     style="max-width:100%;height:auto">
+```
+
+#block(breakable: false)[
+  #align(center)[#image("../images/07_journal_web.png", width: 100mm)]
+  #v(2pt)
+  #align(center)[#text(size: 8.5pt, style: "italic")[
+    Рисунок 7.2. Web-версия 960 × 480 px: 16 px база, sRGB, PNG 1x/2x.
+  ]]
+]
+
+#heading(level: 2)[7.8 Подпись, методы, supplementary]
+
+Подпись должна позволять понять рисунок без текста статьи:
+
++ что показано;
++ _n_ и единицы;
++ статистика/CI;
++ обозначения;
++ ПО и версия;
++ источник данных/код.
+
+В методах укажите: matplotlib/seaborn/plotnine, версии, шрифт, ПО для
+конвертации CMYK, разрешение и формат.
+
+Supplementary figures оформляйте тем же стилем, с нумерацией S1, S2…,
+отдельными файлами и alt-text.
+
+#heading(level: 2)[7.9 Чек-лист перед отправкой]
+
+#heading(level: 3)[Размер и шрифты]
+
+- ☐ Ширина совпадает с колонкой журнала (мм).
+- ☐ Кегль ≥ 6–7 pt; подписи не обрезаны.
+- ☐ Шрифт встроен/в кривых; кириллица отображается.
+- ☐ Нет `bbox_inches="tight"`, если нужен точный размер.
+
+#heading(level: 3)[Цвет и печать]
+
+- ☐ RGB или CMYK по требованию.
+- ☐ Проверка в градациях серого.
+- ☐ CVD-безопасная палитра.
+- ☐ Нет `jet` и 3D.
+
+#heading(level: 3)[Форматы]
+
+- ☐ Вектор (PDF/SVG) для линий и текста.
+- ☐ TIFF/PNG 300–600 dpi для растра.
+- ☐ TIFF LZW, без потерь.
+- ☐ Имена файлов по схеме журнала.
+
+#heading(level: 3)[Содержание]
+
+- ☐ _n_, единицы, статистика.
+- ☐ Панели A/B подписаны.
+- ☐ Подпись не повторяет заголовок.
+- ☐ Методы и ПО указаны.
+
+#heading(level: 3)[Права и доступность]
+
+- ☐ Лицензии на изображения/шрифты.
+- ☐ Alt-text для web.
+- ☐ Контраст и читаемость.
+- ☐ Нет информации только в цвете.
+
+#heading(level: 2)[7.10 Частые причины отказа]
+
+#table(
+  columns: (2.2fr, 4.8fr),
+  table.header(repeat: true, [*Причина*], [*Как исправить*]),
+  [неверная ширина], [пересобрать в 89/183 мм, без tight],
+  [мелкий шрифт], [7 pt минимум, проверить печать],
+  [растр вместо вектора], [PDF/SVG для линий],
+  [72 dpi], [300–600 dpi для растра],
+  [RGB вместо CMYK], [конвертировать и проверить профиль],
+  [текст в растре], [`pdf.fonttype=42`, SVG path],
+  [обрезанные оси], [полный диапазон/объяснение],
+  [нет n и единиц], [добавить в подпись/оси],
+  [цвет только], [форма/подпись/паттерн],
+  [нет прав], [лицензия/разрешение],
+)
+
+#heading(level: 2)[7.11 Что дальше]
+
+Раздел 8 — источники: книги, статьи, руководства журналов и
+инструменты, на которых построена методичка.
+
+#heading(level: 2)[Источники]
+
+- Nature Portfolio. Final submission guidelines — figures. —
+  #link("https://www.nature.com/nature-portfolio/editorial-policies/figures")[nature.com]
+- Elsevier. Artwork and media instructions. —
+  #link("https://www.elsevier.com/researcher/author/tools-and-resources/artwork-guidelines")[elsevier.com]
+- IEEE. Author guidelines — graphics. —
+  #link("https://journals.ieeeauthorcenter.ieee.org/")[ieee.org]
+- Matplotlib: `savefig` —
+  #link("https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.savefig.html")[matplotlib.org]
+- Tufte E. R. _The Visual Display of Quantitative Information_. 1983. —
+  #link("https://www.edwardtufte.com/tufte/books_vdqi")[edwardtufte.com]
+- Wilke C. O. _Fundamentals of Data Visualization_. 2019. —
+  #link("https://clauswilke.com/dataviz/")[clauswilke.com/dataviz]

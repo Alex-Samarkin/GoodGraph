@@ -52,7 +52,7 @@
 // ---------------------------------------------------------------------------
 // Содержание
 // ---------------------------------------------------------------------------
-#show outline: set text(size: 9.5pt)
+#show outline: set text(size: 9pt)
 #outline(title: "Содержание", indent: 1.2em, depth: 1)
 
 #pagebreak()
@@ -209,3 +209,7 @@
 #pagebreak()
 
 #include "../06_conclusion/conclusion.typ"
+
+#pagebreak()
+
+#include "../07_publication/publication.typ"
