@@ -11,7 +11,7 @@ UV ?= uv
 PYTHON ?= $(UV) run python
 TYPST ?= typst
 
-.PHONY: all sync data figures pdf check clean journal-style
+.PHONY: all sync data figures pdf check clean journal-style appendices
 
 all: figures pdf
 
@@ -55,6 +55,7 @@ data:
 	$(PYTHON) 05_charts/32_caterpillar/scripts/make_data.py
 	$(PYTHON) 05_charts/33_funnel/scripts/make_data.py
 	$(PYTHON) 07_publication/scripts/make_data.py
+	$(PYTHON) 09_appendices/scripts/make_data.py
 
 figures: data
 	$(PYTHON) 01_principles/scripts/bad_plot.py
@@ -147,6 +148,12 @@ clean:
 # Удаляет и PDF — используйте осознанно.
 distclean: clean
 	rm -f build/*.pdf
+
+appendices:
+	$(PYTHON) 09_appendices/scripts/make_data.py
+	Rscript 09_appendices/r/six_plots.R
+	JULIA_DEPOT_PATH="$(CURDIR)/.julia:$(HOME)/.julia" julia --project=09_appendices/julia_env 09_appendices/julia/six_plots.jl
+	$(PYTHON) 09_appendices/excel/make_workbook.py
 
 journal-style:
 	$(PYTHON) 07_publication/scripts/make_journal_style.py --preset nature --output build/journal_style_generated.py

@@ -217,3 +217,7 @@
 #pagebreak()
 
 #include "../08_sources/sources.typ"
+
+#pagebreak()
+
+#include "../09_appendices/appendices.typ"
