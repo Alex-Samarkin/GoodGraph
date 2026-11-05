@@ -52,7 +52,7 @@
 // ---------------------------------------------------------------------------
 // Содержание
 // ---------------------------------------------------------------------------
-#show outline: set text(size: 10pt)
+#show outline: set text(size: 9.5pt)
 #outline(title: "Содержание", indent: 1.2em, depth: 1)
 
 #pagebreak()
@@ -205,3 +205,7 @@
 #pagebreak()
 
 #include "../05_charts/33_funnel/funnel.typ"
+
+#pagebreak()
+
+#include "../06_conclusion/conclusion.typ"
