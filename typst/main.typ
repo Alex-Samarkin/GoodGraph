@@ -213,3 +213,7 @@
 #pagebreak()
 
 #include "../07_publication/publication.typ"
+
+#pagebreak()
+
+#include "../08_sources/sources.typ"
